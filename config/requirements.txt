@@ -1,1 +1,1 @@
-pip install Flask cx_oracle gunicorn
+pip install Flask cx_oracle gunicorn request jsonify dotenv
