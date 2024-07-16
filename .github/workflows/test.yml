@@ -23,4 +23,4 @@ jobs:
       run: pip install flake8
 
     - name: Run flake8 linter
-      run: flake8 ../../DI_Backend/app.py
+      run: flake8 Drug_Interaction_Backend/DI_Backend/app.py
