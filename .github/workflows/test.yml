@@ -22,8 +22,14 @@ jobs:
     - name: List root directory for debugging
       run: ls -R ..
 
+    - name: Print working directory for debugging
+      run: pwd
+
     - name: Install flake8
       run: pip install flake8
 
     - name: Run flake8 linter
-      run: flake8 ../DI_Backend/app.py
+      run: |
+        echo "Current directory: $(pwd)"
+        ls -l ../DI_Backend/
+        flake8 ../DI_Backend/app.py
