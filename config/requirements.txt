@@ -1,1 +1,1 @@
-pip install Flask cx_oracle
+pip install Flask cx_oracle gunicorn
