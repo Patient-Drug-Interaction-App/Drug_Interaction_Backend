@@ -1,2 +1,0 @@
-pip install --update pip
-pip install django
