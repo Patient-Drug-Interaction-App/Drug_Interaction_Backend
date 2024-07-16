@@ -9,9 +9,9 @@ app = Flask(__name__)
 load_dotenv()
 
 # Oracle database connection settings
-oracle_username = os.getenv('$DB_USER')
-oracle_password = os.getenv('$DB_PASS')
-oracle_dsn = os.getenv('$DB_DSN')
+oracle_username = os.getenv('DB_USER')
+oracle_password = os.getenv('DB_PASS')
+oracle_dsn = os.getenv('DB_DSN')
 
 # Function to get a connection to the Oracle database
 def get_db_connection():
