@@ -13,6 +13,7 @@ oracle_username = os.getenv('DB_USER')
 oracle_password = os.getenv('DB_PASS')
 oracle_dsn = os.getenv('DB_DSN')
 
+
 # Function to get a connection to the Oracle database
 def get_db_connection():
     connection = cx_Oracle.connect(
@@ -21,6 +22,7 @@ def get_db_connection():
         dsn=oracle_dsn
     )
     return connection
+
 
 # Search endpoint
 @app.route('/search', methods=['GET'])
@@ -32,7 +34,10 @@ def search():
     cursor = connection.cursor()
 
     try:
-        sql_query = "SELECT * FROM healthcare_data WHERE Name LIKE :search_query"
+        sql_query = (
+            "SELECT * FROM healthcare_data "
+            "WHERE Name LIKE :search_query"
+        )
         cursor.execute(sql_query, search_query=f'%{query_param}%')
         
         # Fetch all results
@@ -50,6 +55,7 @@ def search():
     finally:
         cursor.close()
         connection.close()
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
