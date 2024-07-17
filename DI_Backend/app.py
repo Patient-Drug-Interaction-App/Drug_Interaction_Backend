@@ -39,7 +39,7 @@ def search():
             "WHERE Name LIKE :search_query"
         )
         cursor.execute(sql_query, search_query=f'%{query_param}%')
-        
+
         # Fetch all results
         rows = cursor.fetchall()
         columns = [col[0] for col in cursor.description]
