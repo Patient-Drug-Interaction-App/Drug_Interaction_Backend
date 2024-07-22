@@ -57,6 +57,13 @@ jobs:
         pip install flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+    - name: Install SonarScanner
+      run: |
+        wget -O sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+        unzip sonar-scanner.zip
+        mv sonar-scanner-4.6.2.2472-linux sonar-scanner
+        export PATH="$PATH:$(pwd)/sonar-scanner/bin"
+
     - name: SonarCloud Scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
