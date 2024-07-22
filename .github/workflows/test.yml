@@ -63,6 +63,11 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v2.1.0
       with:
-        projectBaseDir: .
+        args: >
+            -Dsonar.projectKey=Patient-Drug-Interaction-App_Drug_Interaction_Backend
+            -Dsonar.organization=patient-drug-interaction-app
+            -Dsonar.sources=.
+            -Dsonar.python.version=3.8
+            -Dsonar.sourceEncoding=UTF-8
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
