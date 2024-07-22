@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [opened, synchronize, reopened]
 
 jobs:
   lint:
@@ -61,13 +61,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v2.1.0
-      with:
-        args: >
-            -Dsonar.projectKey=Patient-Drug-Interaction-App_Drug_Interaction_Backend
-            -Dsonar.organization=patient-drug-interaction-app
-            -Dsonar.sources=.
-            -Dsonar.python.version=3.8
-            -Dsonar.sourceEncoding=UTF-8
+      uses: SonarSource/sonarcloud-github-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
