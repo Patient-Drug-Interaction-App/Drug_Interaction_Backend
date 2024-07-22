@@ -36,7 +36,7 @@ def search():
     try:
         sql_query = (
             "SELECT * FROM healthcare_data "
-            "WHERE Name LIKE :search_query"
+            "WHERE UPPER(NAME) LIKE UPPER(:search_query)"
         )
         cursor.execute(sql_query, search_query=f'%{query_param}%')
 
@@ -58,4 +58,4 @@ def search():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
