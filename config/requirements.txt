@@ -1,1 +1,4 @@
-pip install Flask cx_oracle gunicorn request jsonify dotenv
+cx_Oracle==8.3.0
+Flask==2.0.3
+Flask_Cors==4.0.1
+python-dotenv==1.0.1
